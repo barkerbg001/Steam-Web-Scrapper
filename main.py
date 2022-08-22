@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import numpy
 
 url = "https://store.steampowered.com/search/?term=Minecraft+Dungeons"
 result = requests.get(url)
@@ -10,6 +9,7 @@ data = divswithids.find_all(class_='responsive_search_name_combined')
 print("=========================================")
 for a in data:
     head = a.find(class_='title')
-    price = a.find(class_='col search_price_discount_combined responsive_secondrow').find(class_='col search_price responsive_secondrow')
+    priceheader = a.find(class_='col search_price_discount_combined responsive_secondrow')
+    price = priceheader.find(class_='col search_price responsive_secondrow')
     print(head.string)
     print(price.string.strip())
