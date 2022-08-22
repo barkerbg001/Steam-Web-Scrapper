@@ -30,9 +30,11 @@ jobs:
           cache-dependency-path: |
             **/requirements*.txt
             
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install pylint
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Build Executable
         uses: Nuitka/Nuitka-Action@v0.4
