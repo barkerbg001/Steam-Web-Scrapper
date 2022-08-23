@@ -39,10 +39,10 @@ jobs:
           pip install -r requirements.txt
 
       # Build python script into a stand-alone exe
-      - uses: jimkring/python-script-to-exe@v0.2.0
-        with:
-          script-name: kasa_cli
-          onefile: true
+      - name: Convert to Exe using nuitka
+        run: |
+          pip install nuitka
+          nuitka --one-file main.py
   
       # Uploads artifacts
       - name: "Upload Artifacts"
