@@ -19,7 +19,6 @@ jobs:
         pip install pylint
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Build Executable
-      uses: Nuitka/Nuitka-Action@v0.4
       run:
         --standalone --onefile --assume-yes-for-downloads --output-dir=build kasa_cli
     - name: Upload Artifacts
