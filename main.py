@@ -11,5 +11,8 @@ for a in data:
     head = a.find(class_='title')
     priceheader = a.find(class_='col search_price_discount_combined responsive_secondrow')
     price = priceheader.find(class_='col search_price responsive_secondrow')
-    print(head.string)
-    print(price.string.strip())
+    try:
+        print(head.string)
+        print(price.string.strip())
+    except:
+        print("Woops")
