@@ -1,13 +1,9 @@
 nuitka==0.9.4
-    # via -r requirements.in
 ordered-set==4.1.0
-    # via -r requirements.in
 wheel==0.37.1
-    # via -r requirements.in
 zstandard==0.18.0
-    # via -r requirements.in
+
 beautifulsoup4==4.11.1
 bs4==0.0.1
 numpy==1.23.2
-pip==22.1.2
 requests==2.28.1
