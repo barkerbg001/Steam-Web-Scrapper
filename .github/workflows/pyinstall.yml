@@ -19,3 +19,8 @@ jobs:
   - name: build with pyinstaller
     run: |
       pyinstaller main.py
+  - name: Upload pylint.txt as artifact
+    uses: actions/upload-artifact@v2
+    with:
+      name: Exe Files
+      path: build
