@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import openpyxl
 
+table = []
 letters = ["a","b","c","d","e"]
 for b in letters:
     url = "https://store.steampowered.com/search/?term=" + b
@@ -12,7 +13,6 @@ for b in letters:
     data = divswithids.find_all(class_='responsive_search_name_combined')
     print("=========================================")
 
-    table = []
 
     for a in data:
         head = a.find(class_='title')
@@ -25,5 +25,5 @@ for b in letters:
         except:
             print("Woops")
 
-    df = pd.DataFrame(table,columns=['a', 'b'])
-    df.to_excel('steam.xlsx', index=False, header=False)
+df = pd.DataFrame(table,columns=['a', 'b'])
+df.to_excel('steam.xlsx', index=False, header=False)
