@@ -17,7 +17,9 @@ for a in data:
     priceheader = a.find(class_='col search_price_discount_combined responsive_secondrow')
     price = priceheader.find(class_='col search_price responsive_secondrow')
     try:
-        table.append([[head.string, price.string.strip()]])
+        row= [head.string, price.string.strip()]
+        print(row)
+        table.append(row)
     except:
         print("Woops")
 
