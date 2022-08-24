@@ -11,16 +11,15 @@ data = divswithids.find_all(class_='responsive_search_name_combined')
 print("=========================================")
 
 table = []
-table = [[11, 21, 31], [12, 22, 32], [31, 32, 33]]
-df = pd.DataFrame(table,
-                  index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
-df.to_excel('steam.xlsx', index=False, header=False)
+
 for a in data:
     head = a.find(class_='title')
     priceheader = a.find(class_='col search_price_discount_combined responsive_secondrow')
     price = priceheader.find(class_='col search_price responsive_secondrow')
     try:
-        print(head.string)
-        print(price.string.strip())
+        table.append([[head.string, price.string.strip()]])
     except:
         print("Woops")
+
+df = pd.DataFrame(table,columns=['a', 'b'])
+df.to_excel('steam.xlsx', index=False, header=False)
