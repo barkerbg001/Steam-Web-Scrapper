@@ -12,7 +12,7 @@ print("=========================================")
 
 df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],
                   index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
-df.to_excel('pandas_to_excel_no_index_header.xlsx', index=False, header=False)
+df.to_excel('steam.xlsx', index=False, header=False)
 for a in data:
     head = a.find(class_='title')
     priceheader = a.find(class_='col search_price_discount_combined responsive_secondrow')
