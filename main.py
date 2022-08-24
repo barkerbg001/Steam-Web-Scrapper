@@ -1,13 +1,11 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-import openpyxl
 
 table = []
 letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 for letter in letters:
-    url = "https://store.steampowered.com/search/?term=" + letter
-    result = requests.get(url)
+    result = requests.get("https://store.steampowered.com/search/?term=" + letter)
     doc = BeautifulSoup(result.content, "html.parser")
     divswithids = doc.find(id='search_result_container')
     data = divswithids.find_all(class_='responsive_search_name_combined')
