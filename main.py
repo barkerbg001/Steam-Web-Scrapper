@@ -4,7 +4,7 @@ import pandas as pd
 import openpyxl
 
 table = []
-letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r"]
+letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 for b in letters:
     url = "https://store.steampowered.com/search/?term=" + b
     result = requests.get(url)
@@ -23,7 +23,9 @@ for b in letters:
             print(row)
             table.append(row)
         except:
-            print("Woops")
+            row= [head.string, "Discount"]
+            print(row)
+            table.append(row)
 
 df = pd.DataFrame(table,columns=['a', 'b'])
 df.to_excel('steam.xlsx', index=False, header=False)
