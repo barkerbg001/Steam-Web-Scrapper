@@ -4,7 +4,7 @@ import pandas as pd
 import openpyxl
 
 table = []
-letters = ["a","b","c","d","e"]
+letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r"]
 for b in letters:
     url = "https://store.steampowered.com/search/?term=" + b
     result = requests.get(url)
