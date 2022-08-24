@@ -10,7 +10,9 @@ divswithids = doc.find(id='search_result_container')
 data = divswithids.find_all(class_='responsive_search_name_combined')
 print("=========================================")
 
-df = pd.DataFrame([[11, 21, 31], [12, 22, 32], [31, 32, 33]],
+table = []
+table = [[11, 21, 31], [12, 22, 32], [31, 32, 33]]
+df = pd.DataFrame(table,
                   index=['one', 'two', 'three'], columns=['a', 'b', 'c'])
 df.to_excel('steam.xlsx', index=False, header=False)
 for a in data:
