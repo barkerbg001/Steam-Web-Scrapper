@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import numpy as np
 
 table = []
 letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -16,6 +17,9 @@ for letter in letters:
         head = a.find(class_='title')
         priceheader = a.find(class_='col search_price_discount_combined responsive_secondrow')
         price = priceheader.find(class_='col search_price responsive_secondrow')
+
+        test = np.array(table)
+
         try:
             row= [head.string, price.string.strip()]
             print(row)
@@ -25,5 +29,7 @@ for letter in letters:
             print(row)
             table.append(row)
 
+            
+table.sort(key=lambda table:table[0])
 df = pd.DataFrame(table,columns=['a', 'b'])
 df.to_excel('steam.xlsx', index=False, header=False)
